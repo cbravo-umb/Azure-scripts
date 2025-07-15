@@ -97,15 +97,6 @@ Set-ItemProperty `
     -Type "Dword" `
     -Value "1"
 
-if(($PSBoundParameters.ContainsKey('ProfilePath'))) {
-    New-ItemProperty `
-    -Path HKLM:\Software\FSLogix\Profiles `
-    -Name "CCDLocations" `
-    -Value "type=smb,connectionString=$ProfilePath" `
-    -PropertyType MultiString `
-    -Force
-}
-
 Set-ItemProperty `
     -Path HKLM:\Software\FSLogix\Profiles `
     -Name "SizeInMBs" `
